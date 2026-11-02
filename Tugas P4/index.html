@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Winter 3D</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+        <canvas id="snowCanvas"></canvas>
+        <div class="winter-bg" id="winterBg"></div>
+        <div class="pet rabbit" id="rabbitPet">
+        <div class="rabbit-ears"></div>
+        <div class="rabbit-head"></div>
+        <div class="rabbit-body">
+            <div class="rabbit-tail"></div>
+        </div>
+    </div>
+
+    <div class="pet cat" id="catPet">
+        <div class="cat-ears"></div>
+        <div class="cat-head"></div>
+        <div class="cat-body">
+            <div class="cat-tail"></div>
+        </div>
+    </div>
+
+    <div class="kalkulator-card" id="calcCard">
+        <div class="calc-header">
+            <h2>Winter Calculator</h2>
+            <div class="calc-author">by Anjali Fitria</div>
+        </div>
+
+        <div class="display-box">
+            <input type="text" id="display" class="display-input" placeholder="0" readonly>
+            <div id="previewHasil" class="preview-hasil"></div>
+            <div id="hasil" class="display-hasil">0</div>
+        </div>
+
+        <div class="button-grid">
+            <button class="btn btn-clear" onclick="clearDisplay()">AC</button>
+            <button class="btn btn-op" onclick="deleteChar()">DEL</button>
+            <button class="btn btn-func" onclick="appendInput('(')">(</button>
+            <button class="btn btn-func" onclick="appendInput(')')">)</button>
+
+            <button class="btn btn-func" onclick="appendInput('π')">π</button>
+            <button class="btn btn-func" onclick="appendInput('e')">e</button>
+            <button class="btn btn-func" onclick="appendInput('^2')">x²</button>
+            <button class="btn btn-func" onclick="appendInput('1/')">1/x</button>
+
+            <button class="btn btn-op" onclick="appendInput('√(')">√</button>
+            <button class="btn btn-op" onclick="appendInput('^')">^</button>
+            <button class="btn btn-op" onclick="appendInput('%')">%</button>
+            <button class="btn btn-op" onclick="appendInput('mod')">mod</button>
+
+            <button class="btn" onclick="appendInput('7')">7</button>
+            <button class="btn" onclick="appendInput('8')">8</button>
+            <button class="btn" onclick="appendInput('9')">9</button>
+            <button class="btn btn-op" onclick="appendInput('÷')">÷</button>
+
+            <button class="btn" onclick="appendInput('4')">4</button>
+            <button class="btn" onclick="appendInput('5')">5</button>
+            <button class="btn" onclick="appendInput('6')">6</button>
+            <button class="btn btn-op" onclick="appendInput('×')">×</button>
+
+            <button class="btn" onclick="appendInput('1')">1</button>
+            <button class="btn" onclick="appendInput('2')">2</button>
+            <button class="btn" onclick="appendInput('3')">3</button>
+            <button class="btn btn-op" onclick="appendInput('-')">-</button>
+
+            <button class="btn" onclick="appendInput('0')">0</button>
+            <button class="btn" onclick="appendInput('.')">.</button>
+            <button class="btn btn-op" onclick="appendInput('+')">+</button>
+            <button class="btn btn-equal" onclick="hitungFinal()">=</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

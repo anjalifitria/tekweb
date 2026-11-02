@@ -1,0 +1,303 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: #111a2e;
+}
+
+#snowCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.winter-bg {
+    position: absolute;
+    top: -5%;
+    left: -5%;
+    width: 110%;
+    height: 110%;
+    background: radial-gradient(circle at 50% 20%, #a5c4d4 0%, #4b6b94 45%, #182848 100%);
+    z-index: 1;
+    transition: transform 0.1s ease-out;
+}
+
+.winter-bg::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 35%;
+    background: linear-gradient(180deg, transparent 0%, #e8f4f8 100%);
+    opacity: 0.8;
+}
+
+.pet {
+    position: absolute;
+    bottom: 8%;
+    z-index: 3;
+    pointer-events: none;
+    transition: transform 0.1s ease-out;
+}
+
+.rabbit {
+    left: 10%;
+    animation: bunnyHop 2.5s infinite ease-in-out;
+}
+
+.rabbit-body {
+    width: 45px;
+    height: 30px;
+    background: #ffffff;
+    border-radius: 20px 25px 15px 15px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.rabbit-head {
+    width: 24px;
+    height: 24px;
+    background: #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    top: -12px;
+    right: -4px;
+}
+
+.rabbit-ears {
+    width: 6px;
+    height: 18px;
+    background: #fce4ec;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    position: absolute;
+    top: -26px;
+    right: 4px;
+    transform: rotate(-10deg);
+}
+
+.rabbit-tail {
+    width: 10px;
+    height: 10px;
+    background: #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    left: -5px;
+    top: 10px;
+}
+
+.cat {
+    right: 10%;
+    animation: catWalk 3.5s infinite ease-in-out;
+}
+
+.cat-body {
+    width: 50px;
+    height: 28px;
+    background: #e6a15c;
+    border-radius: 15px 20px 12px 12px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.cat-head {
+    width: 22px;
+    height: 22px;
+    background: #e6a15c;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    left: -4px;
+}
+
+.cat-ears {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 9px solid #d48b44;
+    position: absolute;
+    top: -17px;
+    left: 0px;
+}
+
+.cat-tail {
+    width: 22px;
+    height: 5px;
+    background: #e6a15c;
+    border-radius: 5px;
+    position: absolute;
+    right: -14px;
+    top: 6px;
+    transform-origin: left center;
+    animation: tailWag 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes bunnyHop {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-18px) scale(1.03, 0.97); }
+}
+
+@keyframes catWalk {
+    0%, 100% { transform: translateX(0) translateY(0); }
+    50% { transform: translateX(-12px) translateY(-4px); }
+}
+
+@keyframes tailWag {
+    0% { transform: rotate(15deg); }
+    100% { transform: rotate(-30deg); }
+}
+
+.kalkulator-card {
+    position: relative;
+    z-index: 4;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 22px;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(10, 25, 50, 0.35), inset 0 0 15px rgba(255, 255, 255, 0.6);
+    width: 360px;
+    text-align: center;
+    border: 1.5px solid rgba(255, 255, 255, 0.85);
+    transition: transform 0.1s ease-out;
+}
+
+.calc-header {
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.kalkulator-card h2 {
+    color: #1e3a8a;
+    font-size: 20px;
+    margin: 0;
+}
+
+.calc-author {
+    font-size: 12px;
+    color: #475569;
+    letter-spacing: 0.04em;
+    margin-top: 4px;
+    opacity: 0.9;
+}
+
+.display-box {
+    background-color: rgba(240, 248, 255, 0.9);
+    border: 1px solid #bfdbfe;
+    border-radius: 14px;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+    text-align: right;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+}
+
+.display-input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    text-align: right;
+    font-size: 18px;
+    color: #1e3a8a;
+    outline: none;
+    overflow-x: auto;
+}
+
+.preview-hasil {
+    font-size: 14px;
+    color: rgba(2, 132, 199, 0.55);
+    font-style: italic;
+    min-height: 18px;
+    margin-top: 2px;
+}
+
+.display-hasil {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0284c7;
+    margin-top: 2px;
+    word-wrap: break-word;
+    min-height: 28px;
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.btn {
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #1e3a8a;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+    user-select: none;
+}
+
+.btn:hover {
+    background-color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn-op {
+    background-color: #38bdf8;
+    color: white;
+}
+
+.btn-op:hover {
+    background-color: #0284c7;
+}
+
+.btn-func {
+    background-color: #7dd3fc;
+    color: #0c4a6e;
+}
+
+.btn-func:hover {
+    background-color: #38bdf8;
+    color: white;
+}
+
+.btn-clear {
+    background-color: #ef4444;
+    color: white;
+}
+
+.btn-clear:hover {
+    background-color: #dc2626;
+}
+
+.btn-equal {
+    background-color: #0284c7;
+    color: white;
+}
+
+.btn-equal:hover {
+    background-color: #0369a1;
+}
